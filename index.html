@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#fff8ec">
+  <title>책 읽기 탐험</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+
+  <!-- 입장 비밀번호 -->
+  <section id="lock" class="screen">
+    <div class="lock-card">
+      <div class="lock-icon">🔒</div>
+      <div class="lock-title">📚 책 읽기 탐험</div>
+      <input id="lock-input" type="password" autocomplete="current-password" placeholder="비밀번호">
+      <div id="lock-msg" class="lock-msg"></div>
+      <button id="lock-btn" class="big-btn">들어가기</button>
+    </div>
+  </section>
+
+  <!-- 책장 -->
+  <section id="shelf" class="screen">
+    <header class="topbar">
+      <div class="brand">📚 책 읽기 탐험</div>
+      <div class="wallet">
+        <span class="pill">⭐ <b id="shelf-stars">0</b></span>
+        <span class="pill">🪙 <b id="shelf-coins">0</b></span>
+      </div>
+    </header>
+    <div id="book-grid" class="book-grid"></div>
+  </section>
+
+  <!-- 읽기 화면 -->
+  <section id="reader" class="screen">
+    <header class="topbar">
+      <button id="btn-back" class="icon-btn" aria-label="책장으로">←</button>
+      <div class="book-head">
+        <span id="book-icon" class="book-icon"></span>
+        <span id="book-title" class="book-title"></span>
+      </div>
+      <div class="wallet">
+        <span class="pill">⭐ <b id="reader-stars">0</b></span>
+        <span class="pill" id="page-no">1 / 1쪽</span>
+      </div>
+    </header>
+
+    <main id="lines" class="lines"></main>
+
+    <div id="message" class="message">🎤를 누르고 소리 내어 읽어 보세요</div>
+
+    <footer class="controls">
+      <button id="btn-listen" class="ctrl side" disabled aria-label="들어보기">🔊</button>
+      <button id="btn-mic" class="mic" aria-label="읽기 시작">🎤</button>
+      <button id="btn-skip" class="ctrl side hidden" aria-label="건너뛰기">⏭</button>
+    </footer>
+
+    <div id="debug" class="debug hidden"></div>
+  </section>
+
+  <!-- 쪽/책 완료 창 -->
+  <div id="overlay" class="overlay hidden">
+    <div class="card">
+      <div id="ov-title" class="ov-title"></div>
+      <div id="ov-stars" class="ov-stars"></div>
+      <div id="ov-detail" class="ov-detail"></div>
+      <div class="ov-btns">
+        <button id="ov-btn2" class="big-btn sub hidden"></button>
+        <button id="ov-btn" class="big-btn"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/books.js?v=4"></script>
+  <script src="js/matcher.js?v=4"></script>
+  <script src="js/speech.js?v=4"></script>
+  <script src="js/store.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
+  <script src="js/lock.js?v=4"></script>
+</body>
+</html>
